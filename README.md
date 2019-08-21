@@ -69,7 +69,7 @@ None.
           - name: awscli
 
       roles:
-        - geerlingguy.pip
+        - burnedikt.pip
 
 ## License
 
@@ -78,3 +78,4 @@ MIT / BSD
 ## Author Information
 
 This role was created in 2017 by [Jeff Geerling](https://www.jeffgeerling.com/), author of [Ansible for DevOps](https://www.ansiblefordevops.com/).
+It has been modified slightly in 2019 by [Benedikt Reiser](http://burnedikt.com).
