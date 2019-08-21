@@ -12,6 +12,10 @@ On RedHat/CentOS, you may need to have EPEL installed before running this role. 
 
 Available variables are listed below, along with default values (see `defaults/main.yml`):
 
+    install_setuptools: yes
+
+Whether or not to ensure python's `setuptools` are installed. Defaults to `yes` and is a workaround for [this issue](https://github.com/ansible/ansible/issues/47361).
+
     pip_package: python-pip
 
 The name of the packge to install to get `pip` on the system. You can set to `python3-pip`, for example, when using Python 3 on Ubuntu.
@@ -30,23 +34,23 @@ A list of packages to install with pip. Examples below:
         version: "1.2.3"
       - name: awscli
         version: "1.11.91"
-    
+
       # Or specify bare packages to get the latest release.
       - docker
       - awscli
-    
+
       # Or uninstall a package.
       - name: docker
         state: absent
-    
+
       # Or update a package ot the latest version.
       - name: docker
         state: latest
-    
+
       # Or force a reinstall.
       - name: docker
         state: forcereinstall
-    
+
       # Or install a package in a particular virtualenv.
       - name: docker
         virtualenv: /my_app/venv
@@ -58,12 +62,12 @@ None.
 ## Example Playbook
 
     - hosts: all
-    
+
       vars:
         pip_install_packages:
           - name: docker
           - name: awscli
-    
+
       roles:
         - geerlingguy.pip
 

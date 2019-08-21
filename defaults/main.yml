@@ -1,4 +1,7 @@
 ---
+# Whether or not to ensure that setuptools are installed
+install_setuptools: yes
+
 # For Python 3, use python3-pip.
 pip_package: python-pip
 pip_executable: "{{ 'pip3' if pip_package.startswith('python3') else 'pip' }}"

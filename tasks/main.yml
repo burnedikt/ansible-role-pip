@@ -4,6 +4,15 @@
     name: "{{ pip_package }}"
     state: present
 
+- name: >-
+    Ensure setuptools are installed.
+    see https://github.com/ansible/ansible/issues/47361
+  package:
+    name: python-setuptools
+    state: present
+    update_cache: true
+  when: install_setuptools
+
 - name: Ensure pip_install_packages are installed.
   pip:
     name: "{{ item.name | default(item) }}"
